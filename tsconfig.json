@@ -14,7 +14,8 @@
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "declaration": true,
   },
   "include": ["src/**/*"],
 }

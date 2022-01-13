@@ -16,5 +16,5 @@
     "isolatedModules": true,
     "sourceMap": true
   },
-  "include": ["src/**/*", "tests/**/*.test.ts", "jest.config.js" ],
+  "include": ["src/**/*"],
 }

@@ -1,6 +1,6 @@
 {
   "name": "anyswap-fetcher",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Exchange Rates Fecther for any DEX on Ethereum chains. (Alpha)",
   "main": "dist/index.js",
   "author": "foxytanuki",
@@ -12,7 +12,7 @@
     "lint:prettier": "prettier --check .",
     "lint-staged": "lint-staged",
     "fix": "eslint --fix && prettier -w .",
-    "prepare": "husky install"
+    "prepare": "husky install && yarn build"
   },
   "lint-staged": {
     "*.{js,ts}": [

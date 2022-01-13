@@ -1,6 +1,6 @@
 {
   "name": "anyswap-fetcher",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Exchange Rates Fecther for any DEX on Ethereum chains. (Alpha)",
   "main": "dist/index.js",
   "author": "foxytanuki",

@@ -1,0 +1,7 @@
+.husky/
+node_modules/
+src/
+tests/
+.eslintrc.yml
+jest.config.js
+tsconfig.json

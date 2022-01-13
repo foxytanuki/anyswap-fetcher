@@ -9,7 +9,7 @@ import {
   IUniswapV2Factory,
   IUniswapV2Factory__factory,
   IUniswapV2Pair__factory,
-} from "../contracts";
+} from "./contracts";
 import { getV2FactoryAddress } from "./utils";
 import { ExchangeV2 } from "./type.d";
 

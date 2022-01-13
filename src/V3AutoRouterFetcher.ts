@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import { Token, CurrencyAmount, TradeType, Percent } from "@uniswap/sdk-core";
 import { TEN } from "./constants";
-import { IERC20Metadata, IERC20Metadata__factory } from "../contracts";
+import { IERC20Metadata, IERC20Metadata__factory } from "./contracts";
 import { ExchangeV3 } from "./type.d";
 import { BigNumber } from "ethers";
 import { AlphaRouter } from "@uniswap/smart-order-router";

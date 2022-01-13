@@ -12,7 +12,7 @@ import {
   IUniswapV3Pool__factory,
   Quoter,
   Quoter__factory,
-} from "../contracts";
+} from "./contracts";
 import { getV3FactoryAddress } from "./utils";
 
 class V3Fetcher {

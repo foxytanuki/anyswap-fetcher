@@ -136,7 +136,7 @@ class V2Fetcher {
     return result;
   }
 
-  public async fetchEchangeRate(amount: number = 1): Promise<number> {
+  public async fetchExchangeRate(amount: number = 1): Promise<number> {
     const route = await this.getRoute();
 
     const result = await this.getMinAmount(route, amount);

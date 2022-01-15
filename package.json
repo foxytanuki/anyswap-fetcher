@@ -6,7 +6,7 @@
   "author": "foxytanuki",
   "license": "GPL-3.0-only",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && rimraf dist/__tests__ 'dist/**/__tests__'",
     "test": "jest",
     "lint:eslint": "eslint",
     "lint:prettier": "prettier --check .",
@@ -19,6 +19,17 @@
       "yarn eslint --fix",
       "yarn prettier -w ."
     ]
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>"
+    ],
+    "testMatch": [
+      "**/__tests__/?(*.)test.+(ts|js)"
+    ],
+    "transform": {
+      "^.+\\.(ts)$": "ts-jest"
+    }
   },
   "dependencies": {
     "@uniswap/sdk-core": "^3.0.1",
@@ -41,6 +52,7 @@
     "jest": "^27.4.7",
     "lint-staged": "^12.1.7",
     "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
     "ts-jest": "^27.1.2",
     "tsc": "^2.0.3",
     "typechain": "^7.0.0",

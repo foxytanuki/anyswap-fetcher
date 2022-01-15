@@ -143,6 +143,7 @@ class V3Fetcher {
     const result =
       quotedAmountOut
         .div(TEN.pow((isInputToken0 ? decimal1 : decimal0) - 6))
+        .div(amount)
         .toNumber() /
       10 ** 6;
 
@@ -153,7 +154,11 @@ class V3Fetcher {
     const poolFactory = await this.getPoolFactory();
     const immutables = await this.getPoolImmutables(poolFactory);
 
-    const result = await this.getQuatedAmount(true, immutables.fee, amount);
+    const result = await this.getQuatedAmount(
+      true,
+      immutables.fee,
+      Math.round(amount)
+    );
 
     return result;
   }
@@ -164,12 +169,18 @@ class V3Fetcher {
     const poolFactory = await this.getPoolFactory();
     const immutables = await this.getPoolImmutables(poolFactory);
 
-    const result = await Promise.all([
-      this.getQuatedAmount(true, immutables.fee, amount),
-      this.getQuatedAmount(false, immutables.fee, amount),
-    ]);
+    const result0 = await this.getQuatedAmount(
+      true,
+      immutables.fee,
+      Math.round(amount)
+    );
+    const result1 = await this.getQuatedAmount(
+      false,
+      immutables.fee,
+      Math.round(amount * result0)
+    );
 
-    return result;
+    return [result0, result1];
   }
 }
 

@@ -125,10 +125,12 @@ class V2Fetcher {
 
     const out = trade.minimumAmountOut(new Percent(1, 10000));
     const fraction =
-      Number(out.numerator.toString()) / Number(out.denominator.toString());
+      Number(out.numerator.toString()) /
+      Number(out.denominator.toString()) /
+      amount;
 
     const result =
-      BigNumber.from(fraction.toString())
+      BigNumber.from(Math.round(fraction).toString())
         .div(TEN.pow(token1.decimals - 6))
         .toNumber() /
       10 ** 6;
@@ -139,7 +141,7 @@ class V2Fetcher {
   public async fetchExchangeRate(amount: number = 1): Promise<number> {
     const route = await this.getRoute();
 
-    const result = await this.getMinAmount(route, amount);
+    const result = await this.getMinAmount(route, Math.round(amount));
 
     return result;
   }
@@ -149,12 +151,13 @@ class V2Fetcher {
   ): Promise<number[]> {
     const routes = await this.getBothRoutes();
 
-    const results = await Promise.all([
-      this.getMinAmount(routes[0], amount),
-      this.getMinAmount(routes[1], amount),
-    ]);
+    const result0 = await this.getMinAmount(routes[0], Math.round(amount));
+    const result1 = await this.getMinAmount(
+      routes[1],
+      amount * Math.round(result0)
+    );
 
-    return results;
+    return [result0, result1];
   }
 }
 
